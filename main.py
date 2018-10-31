@@ -12,10 +12,20 @@ from gbdx_auth import gbdx_auth
 #
 # Users may also supply their bearer token via an HTTP query parameter on the request url.
 # Example URL with Query Parameter: https://rda.geobigdata.io/v1/operator?token=<your bearer token>
-s = gbdx_auth.get_session(config_file=None)
+
+
+#Authenticate
+s = gbdx_auth.get_session()
+
+#Get the bearer token from the session
+parameters = {'token': s.access_token}
+
+#make our request
+resp = requests.get('https://rda.geobigdata.io/v1/stripMetadata/4b077271-648e-47fc-a3aa-e01faac7eef1-inv', params=parameters)
 
 
 
-print(s.access_token)
+
+print(resp)
 
 

@@ -102,3 +102,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/rda_getting_started.iml
+/.idea/
