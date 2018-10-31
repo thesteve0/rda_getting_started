@@ -1,3 +1,4 @@
+import json
 import requests
 from gbdx_auth import gbdx_auth
 
@@ -23,7 +24,9 @@ parameters = {'token': s.access_token}
 #make our request
 resp = requests.get('https://rda.geobigdata.io/v1/stripMetadata/4b077271-648e-47fc-a3aa-e01faac7eef1-inv', params=parameters)
 
+operator_resp = requests.get("https://rda.geobigdata.io/v1/operator?fullListing=true", params=parameters)
 
+operator_json = json.loads(operator_resp.content)
 
 
 print(resp)
